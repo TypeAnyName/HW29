@@ -21,7 +21,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 
 @admin.register(User)
-class CategoryAdmin(admin.ModelAdmin):
+class UserAdmin(admin.ModelAdmin):
     list_display = ('username', "first_name", 'last_name')
     search_fields = ('username',)
     list_filter = ('role',)

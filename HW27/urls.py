@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 
-import ads.views
+from ads.views.ad import AdsViewSet
+from ads.views.location import LocationViewSet
+
+router = routers.SimpleRouter()
+router.register('locations', LocationViewSet)
+# router.register('ads', AdsViewSet, "ad")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("ads.urls"))
 ]
+
+urlpatterns += router.urls
