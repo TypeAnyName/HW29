@@ -3,7 +3,8 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from ads.views import CategoryListView, index, AdDetailView, CategoryDetailView, CategoryCreateView, \
-    CategoryUpdateView, CategoryDeleteView, AdsListView, AdCreateView, AdUpdateView, AdDeleteView, AdUploadImageView
+    CategoryUpdateView, CategoryDeleteView, AdsListView, AdCreateView, AdUpdateView, AdDeleteView, AdUploadImageView, \
+    UserListView, UserDetailView, UserUpdateView, UserDeleteView
 
 urlpatterns = [
     path('', index),
@@ -18,6 +19,10 @@ urlpatterns = [
     path('cat/<int:pk>/update', CategoryUpdateView.as_view()),
     path('cat/<int:pk>/delete', CategoryDeleteView.as_view()),
     path('cat/create', CategoryCreateView.as_view()),
+    path('user/', UserListView.as_view()),
+    path('user/<int:pk>', UserDetailView.as_view()),
+    path('user/<int:pk>/update', UserUpdateView.as_view()),
+    path('user/<int:pk>/delete', UserDeleteView.as_view()),
 ]
 
 if settings.DEBUG:
